@@ -1,0 +1,28 @@
+.search {
+    position: relative;
+}
+
+.searchField {
+    color: var(--text-color);
+    font-weight: 400;
+    line-height: 1.5;
+    padding-left: 24px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    box-shadow: 2px 4px 9px 0px #A68DAE47;
+}
+
+.searchField::placeholder {
+    color: #888888;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 3px;
+    top: 5px;
+    bottom: 5px;
+    color: var(--text-color)
+}
