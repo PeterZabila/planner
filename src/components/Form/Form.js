@@ -9,8 +9,7 @@ import "react-time-picker-input/dist/components/TimeInput.css"
 import './form.css'
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
-
-
+import back from '../../images/back.jpg'
 
 const Form = () => {
     const dispatch = useDispatch();
@@ -41,7 +40,7 @@ const Form = () => {
     }
 
   return (
-    <div className='event-form'>
+    <div className='event-form' style={{backgroundImage: `url(${back})`}}>
       <form onSubmit={handleSubmit}>
         <label className='label' htmlFor='Title'>Title</label><br/>
         <input name="title" id='Title' className='input-field'onChange={handleChange}/><br/>

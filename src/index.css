@@ -24,4 +24,6 @@ code {
 .container {
   padding-right: 15px;
   padding-left: 15px;
+  height: 100vh;
+  width: 600px;
 }
