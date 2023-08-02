@@ -7,7 +7,10 @@ const SharedLayout = () => {
   return (
     <div>
       <Header/>
-      <Outlet style={{backgroundImage: `url(${back})`}}/>
+      <div className='container'>
+        <Outlet style={{backgroundImage: `url(${back})`}}/>
+      </div>
+      
     </div>
   )
 }

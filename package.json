@@ -19,6 +19,7 @@
     "react-time-picker-input": "^2.2.3",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
+    "sass": "^1.64.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

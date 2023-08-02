@@ -81,6 +81,9 @@ const Form = () => {
           <option value="Business">Business</option>
           <option value="Music">Music</option>
           <option value="Sport">Sport</option>
+          <option value="Party">Party</option>
+          <option value="Workshop">Workshop</option>
+          <option value="Conference">Conference</option>
         </select><br/>
 
         <label className='label' htmlFor='picture'>Add picture</label><br/>
