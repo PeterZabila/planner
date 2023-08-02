@@ -1,8 +1,31 @@
 .event-form {
     padding-left: 15px;
     padding-right: 15px;
+    box-shadow: 2px 4px 9px 0px #A68DAE47;
+    padding: 40px 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.input-field {
+    width: 240px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid lightgray;
+}
+
+.input-field:active {
+    border: 1px solid var(--accent-color);
 }
 
 .label {
     color: var(--accent-color)
+}
+
+button {
+    width: 240px;
+    background-color: var(--accent-color);
+    border: none;
+    outline: none;
+    border-radius: 3px;
 }

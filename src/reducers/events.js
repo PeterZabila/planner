@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { nanoid } from "nanoid";
 
   const eventsSlice = createSlice({
     name: "events",
@@ -9,11 +10,18 @@ import { createSlice } from "@reduxjs/toolkit";
                 store.push(payload);
                 localStorage.setItem('events', JSON.stringify({ payload }));
             },
-            
+            prepare: (data) => {
+              return {
+                  payload: {
+                      ...data,
+                      id: nanoid()
+                  }
+              }
+          }
         },
-        // removeContact: (store, {payload}) => store.filter(({id}) => id !== payload)
+        removeContact: (store, {payload}) => store.filter(({id}) => id !== payload)
     }
 });
 
-export const { addComment } = eventsSlice.actions;
+export const { addEvent, removeEvent } = eventsSlice.actions;
 export default eventsSlice.reducer;
