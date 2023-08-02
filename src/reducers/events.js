@@ -3,7 +3,38 @@ import { nanoid } from "nanoid";
 
   const eventsSlice = createSlice({
     name: "events",
-    initialState: [],
+    initialState: [
+        {
+            title: 'hello',
+            description: 'sjdkhfgkjdxhg;ioewjglvidzhgedskhksjhgfkjsdhvjk sgddfxzfdv',
+            date: new Date().toLocaleDateString(),
+            time: '12:00',
+            location: 'Kyiv',
+            category: 'Art',
+            picture: '',
+            priority: 'low'
+          },
+          {
+            title: 'Bonjour',
+            description: 'sjdkhfgkjdxhg;ioewjglvidzhgedskhksjhgfkjsdhvjk sgddfxzfdv',
+            date: new Date().toLocaleDateString(),
+            time: '11:00',
+            location: 'Lviv',
+            category: 'Music',
+            picture: '',
+            priority: 'High'
+          },
+          {
+            title: 'Kitty',
+            description: 'sjdkhfgkjdxhg;ioewjglvidzhgedskhksjhgfkjsdhvjk sgddfxzfdv',
+            date: new Date().toLocaleDateString(),
+            time: '09:00',
+            location: 'Kyiv',
+            category: 'Art',
+            picture: '',
+            priority: 'low'
+          }
+    ],
     reducers: {
         addEvent: {
             reducer: (store, {payload}) => {

@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import './eventCard.css';
 import img from '../../images/default.png'
 
-const EventCard = () => {
+const EventCard = ({event}) => {
+const { title = "new", time = "12:00", date = "05.03.2023", description = "some description", location = "Lviv", category = "art", priority = "low" } = event;
+
   return (
     <div className='card-container'>
       <div className='image-container'>
@@ -12,17 +14,17 @@ const EventCard = () => {
       <div className='card-content'>
               <div className='details'>
                 <div className='date-time'>
-                  12:00 31.07.2022
+                  {date} : {time}
                 </div>
                 <div className='location'>
-                  Kyiv
+                  {location}
                 </div>
               </div>
               <div className='card-title'>
-                <h3>Title</h3>
+                <h3>{title}</h3>
               </div>
               <div className='description'>
-                <p>Description of the item successfully created with REACT js library. Description of the item successfully created with REACT js library</p>
+                <p>{description}</p>
               </div>
               <div className='btn'>
                 <button>
