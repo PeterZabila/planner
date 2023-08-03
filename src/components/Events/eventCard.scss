@@ -6,9 +6,11 @@
     transition: 0.3s;
     animation: ease-in;
     border-radius: 5px;
-    /* position: relative; */
     transform: scale(1);
-    margin-bottom: 30px;;
+    margin-bottom: 30px;
+    // NEWLY ADDED
+    background-color: var(--primary-color);
+
 }
 
 .card-container {
@@ -71,6 +73,7 @@ h3, p {
 .description {
     padding: 15px;
     overflow: hidden;
+    width: 80%;
 }
 
 .btn {

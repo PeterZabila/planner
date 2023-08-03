@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './eventCard.css';
+import './eventCard.scss';
 import img from '../../images/default.png'
 
 const EventCard = ({event}) => {
-const { title = "new", time = "12:00", date = "05.03.2023", description = "some description", location = "Lviv", category = "art", priority = "low" } = event;
+const { title, time, date, description, location, category, priority } = event;
 
   return (
     <div className='card-container'>
