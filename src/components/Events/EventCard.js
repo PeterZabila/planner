@@ -20,19 +20,21 @@ const { title = "new", time = "12:00", date = "05.03.2023", description = "some 
                   {location}
                 </div>
               </div>
-              <div className='card-title'>
-                <h3>{title}</h3>
-              </div>
-              <div className='description'>
-                <p>{description}</p>
-              </div>
-              <div className='btn'>
-                <button>
-                    <Link to='card'>
-                      More info
-                    </Link>
-                </button>
-              </div>
+      <div className='card-info'>
+        <div className='card-title'>
+                  <h3>{title}</h3>
+                </div>
+                <div className='description'>
+                  <p>{description}</p>
+                </div>
+                <div className='btn'>
+                  <button>
+                      <Link to='card'>
+                        <span className='text'>More info</span>
+                      </Link>
+                  </button>
+                </div>
+        </div>            
       </div>
     </div>
   )

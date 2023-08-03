@@ -1,0 +1,29 @@
+.events {
+  padding-top: 15px;
+  background: transparent;
+  margin-left: auto;
+  margin-right: auto; 
+    @media screen and (min-width:320px) {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 24px;
+      width: 320px;
+    }
+
+    @media screen and (min-width:768px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 24px;
+        width: 768px;
+      }
+    
+      @media screen and (min-width:1280px) {
+        width: 1280px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 24px;
+        grid-row-gap: 40px;
+      } 
+}

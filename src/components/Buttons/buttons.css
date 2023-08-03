@@ -1,0 +1,80 @@
+.buttons-wrapper {
+    padding: 15px;
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    float: right;
+}
+
+.btn-item {
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 2px 4px 9px 0px #A68DAE47;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.input-item {
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 2px 4px 9px 0px #A68DAE47;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.btn-image {
+    width: 16px;
+    height: 18px;
+    position: absolute;
+    right: 5px;
+    bottom: 3px;
+}
+
+.new-btn-image {
+    width: 16px;
+    height: 18px;
+    position: absolute;
+    left: 5px;
+    bottom: 3px;
+    color: var(--primary-color);
+}
+
+.new-event {
+    background-color: #7B61FF;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.new-event-text {
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.btn-text {
+    color: var(--text-color);
+    text-align: center;
+}
+
+
+.items-select {
+    appearance:none;
+    border: none;
+    outline: none;
+    margin-right: 30px;
+}
+
+.selectible {
+    width: 90px;
+   
+}

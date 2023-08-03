@@ -6,8 +6,9 @@
     transition: 0.3s;
     animation: ease-in;
     border-radius: 5px;
-    position: relative;
+    /* position: relative; */
     transform: scale(1);
+    margin-bottom: 30px;;
 }
 
 .card-container {
@@ -27,15 +28,26 @@ h3, p {
 }
 
 .details {
+    padding-left: 15px;
+    padding-right: 15px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+}
+
+.card-info {
+    background-color: var(--primary-color);
 }
 
 .card-content {
-    padding: 15px;
+    /* padding: 15px; */
     transform: translateY(-60px);
     background-color: rgba(255,255,255, 0.3);
+    height: 270px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s;
+    animation: ease-in;
 }
 
 .card-content:hover {
@@ -52,19 +64,29 @@ h3, p {
 
 .card-title {
     margin-bottom: 0.5rem;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .description {
-    margin-bottom: 20px;
+    padding: 15px;
+    overflow: hidden;
+}
+
+.btn {
+    position: absolute;
+    bottom: 3px;
+    left: 15px;
+}
+
+.text {
+    color: var(--primary-color);
 }
 
 .btn button {
-    display: flex;
-    justify-content: end;
     background-color: #7B61FF;
     border: none;
     transition: 0.2s;
-    color: var(--primary-color);
     margin-bottom: 0.5rem;
     border-radius: 3px;
 }
