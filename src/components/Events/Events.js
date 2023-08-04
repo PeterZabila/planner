@@ -9,7 +9,6 @@ const Events = () => {
   const events = useSelector(store => store.events);
   console.log(events)
 
-
   return (
     <div >
        <Buttons/>

@@ -1,0 +1,125 @@
+.cardContainer {
+    width: 271px;
+    height: 464px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width:768px) {
+        width: 688px;
+        height: 504px;
+      }
+      
+      @media screen and (min-width:1280px) {
+        width: 628px;
+        height: 492px;
+      } 
+
+    overflow: hidden;
+    box-shadow: 2px 4px 9px 0px #A68DAE47;
+    height: 480px;
+    // transition: 0.3s;
+    // animation: ease-in;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+}
+
+.imageContainer img{
+    overflow: hidden;
+    width: 100%;
+    height: 168px;
+
+    @media screen and (min-width: 768px) {
+        height: 272px;
+    }
+
+    border: none;
+    outline: none;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.cardTitle {
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: left;
+    margin-bottom: 14px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 48px;
+    }
+}
+
+.description {
+    color: var(--text-color);
+    padding: 15px;
+    text-align: justify;
+    overflow: hidden;
+
+    @media screen and (max-width: 768px) {
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        max-height: 60px;
+        line-height: 20px;
+    }
+}
+
+.description p {
+    overflow: hidden;
+}
+
+.cardDetails {
+    color: var(--accent-color);
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // display: grid;
+    //     grid-template-columns: repeat(3, 1fr 1fr 1fr);
+    //     grid-template-rows: repeat(2, 1fr);
+    //     gap: 12px;
+    @media screen and (min-width: 678px) {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr 1fr 1fr auto);
+        gap: 12px;
+    }
+}
+
+.cardContentItem {
+    box-shadow: 2px 4px 9px 0px #A68DAE47;
+    padding: 6px 12px;
+    text-align: center;
+}
+
+.buttonsGroup {
+    display: flex;
+    flex-direction: row;
+    padding: 8px 16px;
+    justify-content: end;
+}
+.btnEdit {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    border: none;
+    color: var(--accent-color);
+    margin-right: 16px;
+    padding: 8px 16px;
+    width: 55px;
+    
+}
+
+.btnDelete {
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--primary-color);
+    padding: 8px 16px;
+    width: 108px;
+ 
+}
+
+

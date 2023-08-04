@@ -4,6 +4,7 @@ import SharedLayout from './components/SharedLayout';
 import Events from './components/Events/Events';
 import Form from './components/Form/Form';
 import EventCard from './components/Events/EventCard'
+import EventDetails from './components/Events/EventDetails';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
           <Route path="/" element={<SharedLayout/>}>
               <Route index element={<Events/>}/>
+              <Route path='/:id' element={<EventDetails/>}/>
               <Route path='newEvent' element={<Form/>}/>
               <Route path='card' element={<EventCard/>}/>
           </Route>

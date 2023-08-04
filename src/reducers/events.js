@@ -5,8 +5,9 @@ import { nanoid } from "nanoid";
     name: "events",
     initialState: [
         {
+            id: 1,
             title: 'hello',
-            description: 'sjdkhfgkjdxhg;ioewjglvidzhgedskhksjhgfkjsdhvjk sgddfxzfdv',
+            description: 'Description of the event. Please make sure you are aknowledged with time and date paramaters of the event in order not to miss it.',
             date: new Date().toLocaleDateString(),
             time: '12:00',
             location: 'Kyiv',
@@ -15,8 +16,9 @@ import { nanoid } from "nanoid";
             priority: 'low'
           },
           {
+            id: 2,
             title: 'Bonjour',
-            description: 'sjdkhfgkjdxhg;ioewjglvidzhgedskhksjhgfkjsdhvjk sgddfxzfdv',
+            description: 'Description of the event. Please make sure you are aknowledged with time and date paramaters of the event in order not to miss it.',
             date: new Date().toLocaleDateString(),
             time: '11:00',
             location: 'Lviv',
@@ -25,8 +27,9 @@ import { nanoid } from "nanoid";
             priority: 'High'
           },
           {
+            id: 3,
             title: 'Kitty',
-            description: 'sjdkhfgkjdxhg;ioewjglvidzhgedskhksjhgfkjsdhvjk sgddfxzfdv',
+            description: 'Description of the event. Please make sure you are aknowledged with time and date paramaters of the event in order not to miss it.',
             date: new Date().toLocaleDateString(),
             time: '09:00',
             location: 'Kyiv',

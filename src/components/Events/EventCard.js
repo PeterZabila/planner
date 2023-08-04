@@ -4,12 +4,12 @@ import './eventCard.scss';
 import img from '../../images/default.png'
 
 const EventCard = ({event}) => {
-const { title, time, date, description, location, category, priority } = event;
+const { title, picture, time, date, description, location, category, priority, id } = event;
 
   return (
     <div className='card-container'>
       <div className='image-container'>
-        <img src={img} alt=''/>
+        <img src={picture} alt=''/>
       </div>
       <div className='card-content'>
               <div className='details'>
@@ -29,7 +29,7 @@ const { title, time, date, description, location, category, priority } = event;
                 </div>
                 <div className='btn'>
                   <button>
-                      <Link to='card'>
+                      <Link to={id}>
                         <span className='text'>More info</span>
                       </Link>
                   </button>

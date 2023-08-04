@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import plus from '../../images/plus.svg';
 import sort from '../../images/sort.svg';
 import category from '../../images/category.svg';
