@@ -9,7 +9,7 @@ const { title, picture, time, date, description, location, category, priority, i
   return (
     <div className='card-container'>
       <div className='image-container'>
-        <img src={picture} alt=''/>
+        <img src={picture ? picture : img} alt=''/>
       </div>
       <div className='card-content'>
               <div className='details'>
@@ -29,7 +29,7 @@ const { title, picture, time, date, description, location, category, priority, i
                 </div>
                 <div className='btn'>
                   <button>
-                      <Link to={id}>
+                      <Link to={`/${id}`}>
                         <span className='text'>More info</span>
                       </Link>
                   </button>

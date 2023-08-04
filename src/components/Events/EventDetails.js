@@ -1,15 +1,23 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeEvent } from '../../reducers/events';
 import styles from './eventDetails.module.scss';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import img from '../../images/default.png'
 
 const EventDetail = () => {
   const {id} = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   console.log(id)
   const events = useSelector((state) => state.events);
   const event = events.find(item => String(item.id) === String(id))
   const { title, date, time, description, category, location, priority, picture = img } = event;
+
+  const handleDelete = (id) => {
+    dispatch(removeEvent(id));
+    navigate('/')
+  }
 
   console.log(date)
   return (
@@ -20,7 +28,7 @@ const EventDetail = () => {
       </div>
 
       <div className={styles.imageContainer}>
-        <img src={picture} alt=''/>
+        <img src={picture ? picture : img} alt=''/>
       </div>
 
       <div className={styles.cardDetails}>
@@ -36,8 +44,11 @@ const EventDetail = () => {
             </div>
 
             <div className={styles.buttonsGroup}>
-              <button className={styles.btnEdit}>Edit</button>
-              <button className={styles.btnDelete}>Delete event</button>
+              <Link to={`/${id}/edit`}>
+                  <button className={styles.btnEdit}>Edit</button>
+              </Link>
+              
+              <button className={styles.btnDelete} onClick={() => handleDelete(id)}>Delete event</button>
             </div>
           
           

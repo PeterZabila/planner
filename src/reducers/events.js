@@ -53,9 +53,17 @@ import { nanoid } from "nanoid";
               }
           }
         },
-        removeContact: (store, {payload}) => store.filter(({id}) => id !== payload)
+        updateEvent: {
+          reducer: (store, {payload}) => {
+            const oldEvent = store.find(({id}) => id === payload.id);
+            Object.assign(oldEvent, payload)
+            // const newEvent = {...oldEvent, payload};
+            // store.push(newEvent);
+          }
+        },
+        removeEvent: (store, {payload}) => store.filter(({id}) => id !== Number(payload))
     }
 });
 
-export const { addEvent, removeEvent } = eventsSlice.actions;
+export const { addEvent, updateEvent, removeEvent } = eventsSlice.actions;
 export default eventsSlice.reducer;
