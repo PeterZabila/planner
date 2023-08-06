@@ -6,6 +6,7 @@
     border-bottom: 1px solid var(--accent-color);
     flex-wrap: wrap;
     max-width: 1280px;
+    background-color: var(--primary-color);
 }
 
 .header-title {

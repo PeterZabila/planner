@@ -70,15 +70,17 @@ const EditForm = () => {
         </div>
           
 
-        <label className='label' htmlFor='time'>Select time</label><br/>
+        <div>
+          <label className='label' htmlFor='time'>Select time</label><br/>
               <TimePicker
+              id="time"
                 className='input-field'
                 onChange={(newValue)=> setTime(String(newValue))}
-                value={time}
+          
                 name='time'
-                className='input-field'
               />
         <br/>
+        </div>
 
         <div>
           <label className='label' htmlFor='location'>Location</label><br/>

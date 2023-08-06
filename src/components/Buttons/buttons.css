@@ -1,5 +1,7 @@
 .buttons-wrapper {
-    padding: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     width: 100%;
 }
 

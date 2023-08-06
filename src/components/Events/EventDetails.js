@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeEvent } from '../../reducers/events';
 import styles from './eventDetails.module.scss';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import img from '../../images/default.png'
+import img from '../../images/default.png';
+import goback from '../../images/goback.svg';
 
 const EventDetail = () => {
   const {id} = useParams();
@@ -21,10 +22,17 @@ const EventDetail = () => {
 
   console.log(date)
   return (
- 
-    <div className={styles.cardContainer}>
-      <div className={styles.cardTitle}>
-          <h3>{title}</h3>
+    <div>
+      <div>
+        <Link to="/">
+         
+          <button className={styles.goback}><img src={goback} alt=""/></button>
+        </Link>
+        
+      </div>
+      <div className={styles.cardContainer}>
+      <div  >
+          <h3 className={styles.cardTitle}>{title}</h3>
       </div>
 
       <div className={styles.imageContainer}>
@@ -49,10 +57,12 @@ const EventDetail = () => {
               </Link>
               
               <button className={styles.btnDelete} onClick={() => handleDelete(id)}>Delete event</button>
-            </div>
-          
-          
+            </div>    
     </div>
+
+
+    </div>
+    
   )
 }
 

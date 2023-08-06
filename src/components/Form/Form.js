@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import DatePicker from "react-datepicker";
+// import { nanoid } from 'nanoid';
 import 'react-datepicker/dist/react-datepicker.css';
 import TimePicker from 'react-time-picker-input';
 import { addEvent } from '../../reducers/events';
@@ -9,16 +10,20 @@ import "react-time-picker-input/dist/components/TimeInput.css"
 import './form.scss'
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
+// import { storage } from "firebase";
+// import { ref, uploadBytes } from "firebase?storage";
+
 
 const Form = () => {
     const dispatch = useDispatch();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
+    const [imageUpload, setImageUpload] = useState(null)
     const [time, setTime] = useState(new Date());
     const [startDate, setStartDate] = useState(new Date().toLocaleDateString());
     const initialState = {
       title: '',
       description: '',
-      date: new Date().toLocaleDateString(),
+      date: '',
       time: '',
       location: '',
       category: 'Art',
@@ -31,13 +36,27 @@ const Form = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData)
-        dispatch(addEvent({...formData, time}));
+        dispatch(addEvent({...formData, startDate, time}));
         // navigate('/')
     }
     const handleChange = (e) => {
-        setFormData({...formData, [e.target.name]: e.target.value})
-  
+      
+      if(e.target.value !== '') {
+        setFormData({...formData, [e.target.name]: e.target.value || e.target.files})
+        console.log(e.target.value)
+      } else {
+        return;
+      }
+       
     }
+
+    // const uploadImage = () => {
+    //   if (imageUpload === null) return;
+    //   const imageRef = ref(storage, `images/${imageUpload.name + nanoid()}`)
+    //   uploadBytes(imageRef, imageUpload).then(() => {
+    //     alert("Image uploaded!")
+    //   })
+    // }
 
   return (
     <div className='event-form-wrapper'>
@@ -53,7 +72,6 @@ const Form = () => {
         <div>
           <label className='label' htmlFor='date'>Select date</label><br/>
             <DatePicker 
-                // selected={startDate} 
                 id="date"
                 className='input-field'
                 onChange={(date) => setStartDate(date.toLocaleDateString())} 
