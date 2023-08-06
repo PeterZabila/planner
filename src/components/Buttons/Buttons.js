@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setFilter } from '../../reducers/filter';
+import { setCategory, setSort } from '../../reducers/filter';
 import plus from '../../images/plus.svg';
 import sort from '../../images/sort.svg';
 import category from '../../images/category.svg';
@@ -9,15 +9,20 @@ import './buttons.css';
 
 const Buttons = () => {
 
-const [ category, setCategory ] = useState("");
-const [ sortBy, setSortBy ] = useState("");
-const [ filterSet, setFilterSet] = useState([])
+// const [ category, setCategory ] = useState("");
+// const [ sortBy, setSortBy ] = useState("");
 
 const dispatch = useDispatch();
 
-const handleChange = (e) => {
-    // setFilterSet([...filterSet, e.target.value ]);
-    // dispatch(setFilter(e.target.value));
+const handleChangeSort = (e) => {
+    // setSortBy(e.target.value)
+    // console.log(typeof(sortBy))
+    dispatch(setSort(e.target.value))
+}
+
+const handleChangeCategory = (e) => {
+    // setCategory(e.target.value)
+    dispatch(setCategory(e.target.value))
 }
 
   return (
@@ -25,7 +30,7 @@ const handleChange = (e) => {
         <div className='buttons'>
                 <div className='selectible btn-item'>
                         {/* <span className='btn-text'>Category</span> */}
-                        <select onChange={handleChange} name="category" className='items-select' style={{backgroundImage:(` url${category}`)}}>
+                        <select onChange={handleChangeCategory} name="category" className='items-select' style={{backgroundImage:(` url${category}`)}}>
                             <option className='opt' value="UK">Category</option>
                             <option className='opt' value="Music">Music</option>
                             <option className='opt' value="Business">Business</option>
@@ -39,7 +44,7 @@ const handleChange = (e) => {
 
                 <div className='selectible btn-item'>
                         {/* <span className='btn-text'>Category</span> */}
-                        <select name="sort" onChange={handleChange} className='items-select' style={{backgroundImage:(` url${sort}`)}}>
+                        <select name="sort" onChange={handleChangeSort} className='items-select' style={{backgroundImage:(` url${sort}`)}}>
                             <option className='opt' value="Sort by">Sort by</option>
                             <option className='opt' value="by name">by name</option>
                             <option className='opt' value="by data">by data</option>

@@ -8,7 +8,7 @@ import firebase from '../../firebase';
 
 const Events = () => {
   const events = useSelector(store => store.events);
-  const filterWord = useSelector(store => store.filter);
+  const filterWord = useSelector(store => store.filter.search);
   console.log(events);
   console.log(filterWord);
 
