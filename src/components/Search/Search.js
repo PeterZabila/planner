@@ -1,28 +1,35 @@
 import React, { useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
+import { useDispatch } from 'react-redux';
+import { setFilter } from '../../reducers/filter';
 import './search.css'
 
 const Search = () => {
-  const [search, setSearch] = useState('');
+  const [searchWord, setSearchWord] = useState('');
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    setSearch(e.target.value);
+    setSearchWord(e.target.value);
   }
 
-  const handleSubmit = () => {
-
+  const handleSubmit = (e) => {
+      e.preventDefault()
+      dispatch(setFilter(searchWord));
+      setSearchWord("");
   }
 
   return (
     <div className='search'>
-      <input 
-        className='searchField'
-        type='text' 
-        placeholder='Search by keywords' 
-        value={search} 
-        onChange={handleChange}
-        onSubmit={handleSubmit}
-      />
+      <form onSubmit={handleSubmit}>
+        <input 
+          className='searchField'
+          type='text' 
+          placeholder='Search by keywords' 
+          value={searchWord} 
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+        />
+      </form>
       <RiSearchLine className="search-icon" />
     </div>
   )

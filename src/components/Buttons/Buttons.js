@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import plus from '../../images/plus.svg';
 import sort from '../../images/sort.svg';
@@ -6,12 +6,16 @@ import category from '../../images/category.svg';
 import './buttons.css';
 
 const Buttons = () => {
+
+const [ category, setCategory ] = useState("");
+const [ sortBy, setSortBy ] = useState("");
+
   return (
     <div className='buttons-wrapper'>
         <div className='buttons'>
                 <div className='selectible btn-item'>
                         {/* <span className='btn-text'>Category</span> */}
-                        <select className='items-select' style={{backgroundImage:(` url${sort}`)}}>
+                        <select name="category" className='items-select' style={{backgroundImage:(` url${sort}`)}}>
                             <option className='opt' value="UK">Category</option>
                             <option className='opt' value="Music">Music</option>
                             <option className='opt' value="Business">Business</option>
@@ -25,7 +29,7 @@ const Buttons = () => {
 
                 <div className='selectible btn-item'>
                         {/* <span className='btn-text'>Category</span> */}
-                        <select className='items-select' style={{backgroundImage:(` url${sort}`)}}>
+                        <select name="sort" className='items-select' style={{backgroundImage:(` url${sort}`)}}>
                             <option className='opt' value="Sort by">Sort by</option>
                             <option className='opt' value="by name">by name</option>
                             <option className='opt' value="by data">by data</option>
@@ -34,13 +38,6 @@ const Buttons = () => {
              
                     <img src={sort} className='btn-image' alt="Category" />
                 </div>
-
-                
-{/* 
-                <button className='btn-item'>
-                    <span className='btn-text'>Filter</span>
-                    <img className='btn-image' src={sort} alt="Filter" /> 
-                </button> */}
                 
 
             <Link to="newEvent"> 

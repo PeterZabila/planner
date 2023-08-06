@@ -7,14 +7,27 @@ import styles from './events.module.scss';
 const Events = () => {
 
   const events = useSelector(store => store.events);
-  console.log(events)
+  const filterWord = useSelector(store => store.filter);
+  console.log(events);
+  console.log(filterWord);
+
+let result;
+
+  if(filterWord) {
+    result = events.filter(item => item.title.toLowerCase() === filterWord.toLowerCase());
+    // return filteredEvents
+  } else {
+    result = events;
+  }
+
+  // console.log(events)
 
   return (
     <div >
        <Buttons/>
          <div className={styles.events}>   
-      {events?.length ? events.map(event => (
-        <EventCard event={event} key={event.name}/>
+      {result?.length ? result.map(event => (
+        <EventCard event={event} key={event.id}/>
       )) : (<h3>No events</h3>)}
     </div>
     </div>

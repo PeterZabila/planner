@@ -57,7 +57,7 @@ import { nanoid } from "nanoid";
           reducer: (store, {payload}) => {
             const oldEvent = store.find(({id}) => id === payload.id);
             Object.assign(oldEvent, payload)
-            // const newEvent = {...oldEvent, payload};
+            // const newEvent = {...oldEvent, payload};`
             // store.push(newEvent);
           }
         },
