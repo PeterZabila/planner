@@ -9,9 +9,6 @@ import './buttons.css';
 
 const Buttons = () => {
 
-// const [ category, setCategory ] = useState("");
-// const [ sortBy, setSortBy ] = useState("");
-
 const dispatch = useDispatch();
 
 const handleChangeSort = (e) => {
@@ -21,15 +18,20 @@ const handleChangeSort = (e) => {
 }
 
 const handleChangeCategory = (e) => {
-    // setCategory(e.target.value)
     dispatch(setCategory(e.target.value))
 }
+
+// const resetFilters = () => {
+
+// }
 
   return (
     <div className='buttons-wrapper'>
         <div className='buttons'>
+                {/* <div>
+                    <button >Reset filters</button>
+                </div> */}
                 <div className='selectible btn-item'>
-                        {/* <span className='btn-text'>Category</span> */}
                         <select onChange={handleChangeCategory} name="category" className='items-select' style={{backgroundImage:(` url${category}`)}}>
                             <option className='opt' value="UK">Category</option>
                             <option className='opt' value="Music">Music</option>
@@ -43,7 +45,6 @@ const handleChangeCategory = (e) => {
                 </div>
 
                 <div className='selectible btn-item'>
-                        {/* <span className='btn-text'>Category</span> */}
                         <select name="sort" onChange={handleChangeSort} className='items-select' style={{backgroundImage:(` url${sort}`)}}>
                             <option className='opt' value="Sort by">Sort by</option>
                             <option className='opt' value="by name">by name</option>

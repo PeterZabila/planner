@@ -16,21 +16,24 @@
         width: 320px;
         height: 100%;
 
-  
       @media screen and (min-width:768px) {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           grid-template-rows: repeat(3, 1fr);
           gap: 24px;
-          width: 688px;
+          width: 688px;      
         }
       
         @media screen and (min-width:1280px) {
           width: 1280px;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: repeat(3, 1fr);
+          grid-template-rows: repeat(3, 1fr);         
         } 
+}
+
+.input {
+    justify-self: center;
 }
 
 .input-field {
@@ -54,4 +57,13 @@ button {
     border: none;
     outline: none;
     border-radius: 3px;
+}
+
+.goback {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+.input-time {
+    margin-left: 80px;
 }

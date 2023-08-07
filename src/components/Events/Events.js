@@ -1,22 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import EventCard from './EventCard';
 import Buttons from '../Buttons/Buttons'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+// import { setFilter, setSort, setCategory } from '../../reducers/filter';
 import styles from './events.module.scss';
-import firebase from '../../firebase';
+// import firebase from '../../firebase';
 
 
 const Events = () => {
+  // const dispatch = useDispatch
   const events = useSelector(store => store.events);
   const filterWord = useSelector(store => store.filter.search);
-  console.log(events);
-  console.log(filterWord);
+  const sortFilter = useSelector(store => store.filter.sort);
+  const categoryFilter = useSelector(store => store.filter.category);
 
 let result;
 
   if(filterWord) {
     result = events.filter(item => item.title.toLowerCase() === filterWord.toLowerCase());
-  } else {
+  // } if(categoryFilter) {
+  //   result = events.filter(item => item.category.toLowerCase() === categoryFilter.toLowerCase());
+
+  // } if (sortFilter) {
+  //   switch(sortFilter) {
+  //     case "by name":
+  //       result = events.sort((a, b) => a.title !== b.title ? a.title < b.title ? -1 : 1 : 0)
+  //       break
+  //     default:
+  //       return result;
+  //   }
+  }
+  else {
     result = events;
   }
 
