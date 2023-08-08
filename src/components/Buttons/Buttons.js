@@ -5,25 +5,26 @@ import { setCategory, setSort } from '../../reducers/filter';
 import plus from '../../images/plus.svg';
 import sort from '../../images/sort.svg';
 import category from '../../images/category.svg';
-import './buttons.css';
+import './buttons.scss';
+
 
 const Buttons = () => {
 
-const dispatch = useDispatch();
-const handleChangeSort = (e) => {
-    dispatch(setSort(e.target.value))
-}
+    const dispatch = useDispatch();
+    const handleChangeSort = (e) => {
+        dispatch(setSort(e.target.value))
+    }
 
-const handleChangeCategory = (e) => {
-    dispatch(setCategory(e.target.value))
-}
+    const handleChangeCategory = (e) => {
+        dispatch(setCategory(e.target.value))
+    }
 
   return (
     <div className='buttons-wrapper'>
         <div className='buttons'>
 
                 <div className='selectible btn-item'>
-                        <select onChange={handleChangeCategory} name="category" className='items-select' style={{backgroundImage:(` url${category}`)}}>
+                        <select onChange={handleChangeCategory} name="category" placeholder="CCC" className='items-select' style={{backgroundImage:(` url${category}`)}}>
                             <option className='opt' value="UK">Category</option>
                             <option className='opt' value="Music">Music</option>
                             <option className='opt' value="Business">Business</option>
@@ -34,6 +35,7 @@ const handleChangeCategory = (e) => {
              
                     <img src={category} className='btn-image' alt="Category" />
                 </div>
+ 
 
                 <div className='selectible btn-item'>
                         <select name="sort" onChange={handleChangeSort} className='items-select' style={{backgroundImage:(` url${sort}`)}}>

@@ -1,14 +1,17 @@
 .buttons-wrapper {
-    padding-right: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 24px 15px 24px 15px;
     width: 100%;
 }
 
 .buttons {
     display: flex;
     flex-direction: row;
-    float: right;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 24px;
+    @media screen and (min-width: 768px) {
+        float: right;
+    }
 }
 
 .btn-item {

@@ -23,9 +23,14 @@
       @media screen and (min-width:1280px) {
         width: 1280px;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, 1fr);
         grid-column-gap: 24px;
         grid-row-gap: 40px;
       } 
+}
+
+.goback {
+  background-color: transparent;
+  color: var(--accent-color);
 }

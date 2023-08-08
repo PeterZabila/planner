@@ -4,23 +4,28 @@ import Buttons from '../Buttons/Buttons'
 import { useSelector, useDispatch } from 'react-redux';
 // import { setFilter, setSort, setCategory } from '../../reducers/filter';
 import styles from './events.module.scss';
-// import firebase from '../../firebase';
-
+import goback from '../../images/goback.svg';
 
 const Events = () => {
-  // const dispatch = useDispatch
   const events = useSelector(store => store.events);
   const filterWord = useSelector(store => store.filter.search);
-  const sortFilter = useSelector(store => store.filter.sort);
-  const categoryFilter = useSelector(store => store.filter.category);
+  const [allEvents, setAllEvents] = useState(events);
+  const [filter, setFilter] = useState(filterWord)
 
+
+
+  const handleClear = (e) => {
+    e.preventDefault();
+    setFilter('')
+    setAllEvents("")
+  }
+  // const sortFilter = useSelector(store => store.filter.sort);
+  // const categoryFilter = useSelector(store => store.filter.category);
 let result;
-
   if(filterWord) {
-    result = events.filter(item => item.title.toLowerCase() === filterWord.toLowerCase());
+    result = allEvents.filter(item => (item.title.toLowerCase()).includes(filterWord.toLowerCase()));
   // } if(categoryFilter) {
   //   result = events.filter(item => item.category.toLowerCase() === categoryFilter.toLowerCase());
-
   // } if (sortFilter) {
   //   switch(sortFilter) {
   //     case "by name":
@@ -34,51 +39,20 @@ let result;
     result = events;
   }
 
-  // const [allEvents, setAllEvents] = useState([]);
-  // const [loading, setLoading] = useState(false);
-  // const ref = firebase.firestore().collection("1");
-
-//   const getEvents = () => {
-//     setLoading(true);
-//     ref.onSnapshot((querySnapshot) => {
-//       const items = [];
-//       querySnapshot.forEach((doc) => {
-//         items.push(doc.data());
-//       });
-//       setAllEvents(items);
-//       console.log(items)
-//       setLoading(false);
-//     })
-//   }
-
-//   useEffect(() => {
-//     getEvents()
-//   }, [])
-
-// if (loading) {
-//   return <h1>Loading...</h1>
-// }
+  // useEffect(() => {
+  //   setAllEvents(result)
+  // }, [filter])
 
   return (
     <div >
        <Buttons/>
+       {/* <button className='goback' onClick={handleClear}><img src={goback}/></button> */}
          <div className={styles.events}>   
       {result?.length ? result.map(event => (
         <EventCard event={event} key={event.id}/>
       )) : (<h3>No events</h3>)}
     </div>
-    </div>
-
-
-      // <div >
-      //   <Buttons/>
-      //     <div className={styles.events}>   
-      //   {allEvents?.length ? allEvents.map(event => (
-      //   <EventCard event={event} key={event.id}/>
-      //   )) : (<h3>No events</h3>)}
-      //   </div>
-      // </div>
-   
+    </div> 
   )
 }
 
