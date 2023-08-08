@@ -10,10 +10,7 @@ import './buttons.css';
 const Buttons = () => {
 
 const dispatch = useDispatch();
-
 const handleChangeSort = (e) => {
-    // setSortBy(e.target.value)
-    // console.log(typeof(sortBy))
     dispatch(setSort(e.target.value))
 }
 
@@ -21,16 +18,10 @@ const handleChangeCategory = (e) => {
     dispatch(setCategory(e.target.value))
 }
 
-// const resetFilters = () => {
-
-// }
-
   return (
     <div className='buttons-wrapper'>
         <div className='buttons'>
-                {/* <div>
-                    <button >Reset filters</button>
-                </div> */}
+
                 <div className='selectible btn-item'>
                         <select onChange={handleChangeCategory} name="category" className='items-select' style={{backgroundImage:(` url${category}`)}}>
                             <option className='opt' value="UK">Category</option>

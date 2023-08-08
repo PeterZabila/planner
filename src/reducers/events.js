@@ -79,6 +79,7 @@ import { nanoid } from "nanoid";
           reducer: (store, {payload}) => {
             const oldEvent = store.find(({id}) => id === payload.id);
             Object.assign(oldEvent, payload)
+ 
           }
         },
         removeEvent: (store, {payload}) => store.filter(({id}) => id !== Number(payload))

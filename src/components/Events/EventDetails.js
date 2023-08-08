@@ -10,7 +10,6 @@ const EventDetail = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(id)
   const events = useSelector((state) => state.events);
   const event = events.find(item => String(item.id) === String(id))
   const { title, date, time, description, category, location, priority, picture = img } = event;
@@ -20,22 +19,22 @@ const EventDetail = () => {
   const formattedDataOutput = dateToString.join('.')
 
   const handleDelete = (id) => {
+    console.log(id)
     dispatch(removeEvent(id));
+
     navigate('/')
   }
 
-  console.log(date)
   return (
     <div>
       <div>
         <Link to="/">
-         
           <button className={styles.goback}><img src={goback} alt=""/></button>
         </Link>
         
       </div>
       <div className={styles.cardContainer}>
-      <div  >
+      <div>
           <h3 className={styles.cardTitle}>{title}</h3>
       </div>
 
@@ -63,10 +62,7 @@ const EventDetail = () => {
               <button className={styles.btnDelete} onClick={() => handleDelete(id)}>Delete event</button>
             </div>    
     </div>
-
-
     </div>
-    
   )
 }
 

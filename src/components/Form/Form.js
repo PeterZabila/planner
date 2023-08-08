@@ -1,11 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import DatePicker from "react-datepicker";
-// import 'react-datepicker/dist/react-datepicker.css';
-import TimePicker from 'react-time-picker-input';
 import { addEvent } from '../../reducers/events';
-import "react-time-picker-input/dist/components/TimeInput.css"
 import './form.scss'
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
@@ -18,6 +14,7 @@ const Form = () => {
     const [time, setTime] = useState(Date());
     const [date, setDate] = useState('');
     const dateInputRef = useRef(null);
+    const timeInputRef = useRef(null);
     const initialState = {
       title: '',
       description: '',
@@ -33,8 +30,8 @@ const Form = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addEvent({...formData, date, time}));
-        // navigate('/')
+        dispatch(addEvent({...formData, date, time, imageUpload}));
+        navigate('/')
     }
     const handleChange = (e) => {
       
@@ -76,23 +73,25 @@ const Form = () => {
               min="2023-08-09"
             />
         </div>
-             
+
         <div className='input'>
           <label className='label' htmlFor='time'>Select time</label><br/>
-              <TimePicker
+              <input
+                type="time"
                 className='input-field'
-                onChange={setTime}
-                value={time}
+                onChange={(e) => setTime(e.target.value)}
+                ref={timeInputRef}
                 name='time'
               />
         <br/>
-        </div>    
+        </div>
+
         <div className='input'>
           <label className='label' htmlFor='location'>Location</label><br/>
           <input name="location" id='Title' className='input-field'onChange={handleChange}/>
         </div>       
         <div className='input'>
-          <label className='label' htmlFor='picture'>Category</label><br/>
+          <label className='label' htmlFor='category'>Category</label><br/>
           <select name='category' className='input-field' onChange={handleChange}>
             <option value="Art">Art</option>
             <option value="Business">Business</option>
@@ -105,7 +104,7 @@ const Form = () => {
         </div>       
         <div className='input'>
           <label className='label' htmlFor='picture'>Add picture</label><br/>
-          <input name="picture" id='picture' className='input-field' type="file" onChange={handleChange}/>
+          <input name="picture" id='picture' className='input-field' type="file" onChange={e => setImageUpload(e.target.files)}/>
         </div>     
         <div className='input'>
             <label className='label' htmlFor='prority'>Priority</label><br/>
