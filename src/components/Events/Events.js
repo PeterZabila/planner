@@ -20,7 +20,8 @@ const Events = () => {
   return (
     <div >
        <Buttons/>
-          <button className='goback' onClick={() => dispatch(setFilter(''))}>Back to all events</button>
+       {fil ? (<button className='goback' onClick={() => dispatch(setFilter(''))}>Back to all events</button>) : null}
+          
           <div className={styles.events}>   
             {allEvs?.length ? allEvs.map(event => (
         <EventCard event={event} key={event.id}/>
