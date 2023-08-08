@@ -11,7 +11,7 @@ import './form.scss'
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
 import goback from '../../images/goback.svg';
-// import { storage } from "firebase";
+
 // import { ref, uploadBytes } from "firebase?storage";
 
 
