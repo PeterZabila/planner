@@ -7,7 +7,11 @@ const rootReducer = combineReducers({ events: eventsReducer, filter: filterReduc
 // const rootReducer = combineReducers({ events: eventsReducer });
 
 export const store = configureStore({
-    reducer: rootReducer
+    reducer: rootReducer,
+    middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
   });
   
   export default store;

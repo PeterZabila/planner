@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
@@ -19,28 +18,18 @@ const EditForm = () => {
     const dispatch = useDispatch();
     // const navigate = useNavigate();
     const [time, setTime] = useState(new Date());
-    const [startDate, setStartDate] = useState(date);
-    const initialState = {
-      title,
-      description,
-      date,
-      time: '',
-      location,
-      category,
-      picture: '',
-      priority
-    }
+    const [d, setD] = useState('');
+    const dateInputRef = useRef(null);
 
-    const [formData, setFormData] = useState(initialState);
+    const [formData, setFormData] = useState(event);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData)
-        dispatch(updateEvent({...formData, time}));
+        dispatch(updateEvent({...formData, d, time}));
         // navigate('/')
     }
     const handleChange = (e) => {
-        setFormData({...formData, [e.target.name]: e.target.value})
+      setFormData({...formData, [e.target.name]: e.target.value || e.target.files})
     }
 
   return (
@@ -48,35 +37,33 @@ const EditForm = () => {
       <form className='event-form' onSubmit={handleSubmit}>
         <div>
           <label className='label' htmlFor='Title'>Title</label><br/>
-          <input name="title" id='Title' className='input-field'onChange={handleChange}/>
+          <input name="title" value={title} id='Title' className='input-field'onChange={handleChange}/>
         </div>
         <div>
         <label className='label' htmlFor='Description'>Description</label><br/>
-        <textarea name="description" id='Description' className='input-field'onChange={handleChange}/>
+        <textarea name="description" value={description} id='Description' className='input-field'onChange={handleChange}/>
         </div>
-        <div>
+        
+        <div className='input'>
           <label className='label' htmlFor='date'>Select date</label><br/>
-            <DatePicker 
-                // selected={startDate} 
-                id="date"
+            <input
+              id="date"
+                type="date"
                 className='input-field'
-                onChange={(date) => setStartDate(date.toLocaleDateString())} 
-                dateFormat='dd/MM/yyyy'
-                minDate={new Date()}
-                isClearable
-                name='date'
-                value={startDate}
+                onChange={(e) => setD(e.target.value)}
+                ref={dateInputRef}
+                pattern="\d{2}.m{2}.y{4}"
+              min="2023-08-09"
             />
         </div>
           
-
         <div>
           <label className='label' htmlFor='time'>Select time</label><br/>
               <TimePicker
               id="time"
                 className='input-field'
                 onChange={(newValue)=> setTime(String(newValue))}
-          
+                value={time}
                 name='time'
               />
         <br/>
@@ -84,12 +71,12 @@ const EditForm = () => {
 
         <div>
           <label className='label' htmlFor='location'>Location</label><br/>
-          <input name="location" id='Title' className='input-field'onChange={handleChange}/>
+          <input value={location} name="location" id='Title' className='input-field'onChange={handleChange}/>
         </div>
         
         <div>
           <label className='label' htmlFor='picture'>Category</label><br/>
-          <select name='category' className='input-field' onChange={handleChange}>
+          <select value={category} name='category' className='input-field' onChange={handleChange}>
             <option value="Art">Art</option>
             <option value="Business">Business</option>
             <option value="Music">Music</option>
@@ -107,7 +94,7 @@ const EditForm = () => {
        
         <div>
             <label className='label' htmlFor='prority'>Priority</label><br/>
-                <select name='priority' className='input-field' onChange={handleChange}>
+                <select name='priority' value={priority} className='input-field' onChange={handleChange}>
                   <option value="High">High</option>
                   <option value="Medium">Medium</option>
                   <option value="Low">Low</option>

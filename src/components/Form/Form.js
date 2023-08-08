@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import DatePicker from "react-datepicker";
-// import { nanoid } from 'nanoid';
-import 'react-datepicker/dist/react-datepicker.css';
+// import 'react-datepicker/dist/react-datepicker.css';
 import TimePicker from 'react-time-picker-input';
 import { addEvent } from '../../reducers/events';
 import "react-time-picker-input/dist/components/TimeInput.css"
@@ -12,15 +11,13 @@ import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
 import goback from '../../images/goback.svg';
 
-// import { ref, uploadBytes } from "firebase?storage";
-
-
 const Form = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [imageUpload, setImageUpload] = useState(null)
-    const [time, setTime] = useState(new Date());
-    const [startDate, setStartDate] = useState(new Date().toLocaleDateString());
+    const [time, setTime] = useState(Date());
+    const [date, setDate] = useState('');
+    const dateInputRef = useRef(null);
     const initialState = {
       title: '',
       description: '',
@@ -36,28 +33,17 @@ const Form = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData)
-        dispatch(addEvent({...formData, startDate, time}));
+        dispatch(addEvent({...formData, date, time}));
         // navigate('/')
     }
     const handleChange = (e) => {
       
       if(e.target.value !== '') {
         setFormData({...formData, [e.target.name]: e.target.value || e.target.files})
-        console.log(e.target.value)
       } else {
         return;
       }
-       
     }
-
-    // const uploadImage = () => {
-    //   if (imageUpload === null) return;
-    //   const imageRef = ref(storage, `images/${imageUpload.name + nanoid()}`)
-    //   uploadBytes(imageRef, imageUpload).then(() => {
-    //     alert("Image uploaded!")
-    //   })
-    // }
 
   return (
     <div className='event-form-wrapper'>
@@ -77,24 +63,25 @@ const Form = () => {
         <label className='label' htmlFor='Description'>Description</label><br/>
         <textarea name="description" id='Description' className='input-field'onChange={handleChange}/>
         </div>
+
         <div className='input'>
           <label className='label' htmlFor='date'>Select date</label><br/>
-            <DatePicker 
-                id="date"
+            <input
+              id="date"
+                type="date"
                 className='input-field'
-                onChange={(date) => setStartDate(date.toLocaleDateString())} 
-                dateFormat='dd/MM/yyyy'
-                minDate={new Date()}
-                isClearable
-                name='date'
-                value={startDate}
+                onChange={(e) => setDate(e.target.value)}
+                ref={dateInputRef}
+                pattern="\d{2}.m{2}.y{4}"
+              min="2023-08-09"
             />
-        </div>         
+        </div>
+             
         <div className='input'>
           <label className='label' htmlFor='time'>Select time</label><br/>
               <TimePicker
                 className='input-field'
-                onChange={(newValue)=> setTime(String(newValue))}
+                onChange={setTime}
                 value={time}
                 name='time'
               />

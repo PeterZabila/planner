@@ -6,6 +6,11 @@ import img from '../../images/default.png'
 const EventCard = ({event}) => {
 const { title, picture, time, date, description, location, category, priority, id } = event;
 
+// const narmalizedDate = (date.split('-').unshift()).join();
+const dateToString = (date.split('-'))
+dateToString.shift();
+const formattedDataOutput = dateToString.join('.')
+
   return (
     <div className='card-container'>
       <div className='image-container'>
@@ -14,7 +19,7 @@ const { title, picture, time, date, description, location, category, priority, i
       <div className='card-content'>
               <div className='details'>
                 <div className='date-time'>
-                  {date} : {time}
+                  {formattedDataOutput} : {time}
                 </div>
                 <div className='location'>
                   {location}

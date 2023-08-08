@@ -15,6 +15,10 @@ const EventDetail = () => {
   const event = events.find(item => String(item.id) === String(id))
   const { title, date, time, description, category, location, priority, picture = img } = event;
 
+  const dateToString = (date.split('-'))
+  dateToString.shift();
+  const formattedDataOutput = dateToString.join('.')
+
   const handleDelete = (id) => {
     dispatch(removeEvent(id));
     navigate('/')
@@ -44,7 +48,7 @@ const EventDetail = () => {
                 <div className={styles.cardContentItem}>{priority}</div>
                 <div className={styles.cardContentItem}>{location}</div>
                 <div className={styles.cardContentItem}>
-                  {date} at {time}
+                  {formattedDataOutput} at {time}
                 </div>
       </div>
             <div className={styles.description}>

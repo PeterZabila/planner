@@ -6,20 +6,20 @@ import { nanoid } from "nanoid";
     initialState: [
         {
             id: 1,
-            title: 'hello',
-            description: 'Description of the event. Please make sure you are aknowledged with time and date paramaters of the event in order not to miss it.',
-            date: new Date().toLocaleDateString(),
+            title: 'Football match',
+            description: 'Great evening for all football fans and players. Inter Rome will take part in an unforgatable battle of the best of the best. Tickets preorder is open ',
+            date: "2023-08-10",
             time: '12:00',
             location: 'Kyiv',
-            category: 'Art',
+            category: 'Sport',
             picture: '',
             priority: 'low'
           },
           {
             id: 2,
-            title: 'Bonjour',
-            description: 'Description of the event. Please make sure you are aknowledged with time and date paramaters of the event in order not to miss it.',
-            date: new Date().toLocaleDateString(),
+            title: 'Music event',
+            description: 'Dear friends. We are honored to invite you to our music event where all talanted musicians of our beautiful city will perfirm live for you',
+            date: "2023-10-10",
             time: '11:00',
             location: 'Lviv',
             category: 'Music',
@@ -28,12 +28,34 @@ import { nanoid } from "nanoid";
           },
           {
             id: 3,
-            title: 'Kitty',
-            description: 'Description of the event. Please make sure you are aknowledged with time and date paramaters of the event in order not to miss it.',
-            date: new Date().toLocaleDateString(),
+            title: 'Business masterclass',
+            description: 'Business trainers will teach how to trade on stock exjchange markets. Also will give you practical advices on how to set your business workflow',
+            date: "2023-11-23",
             time: '09:00',
             location: 'Kyiv',
+            category: 'Business',
+            picture: '',
+            priority: 'low'
+          },
+          {
+            id: 4,
+            title: 'Photography workshop',
+            description: 'Free online masterclass for beginner photographers. Every enthusiast is welcome',
+            date: "2023-12-15",
+            time: '09:00',
+            location: 'Cherkasy',
             category: 'Art',
+            picture: '',
+            priority: 'low'
+          },
+          {
+            id: 5,
+            title: 'Jass festival',
+            description: 'Hello dear friends. Please welcome to Annual Jazz festival in Ternopil. Best performers on the stage will present our new program',
+            date: "2023-11-23",
+            time: '09:00',
+            location: 'Ternopil',
+            category: 'Music',
             picture: '',
             priority: 'low'
           }
@@ -42,7 +64,7 @@ import { nanoid } from "nanoid";
         addEvent: {
             reducer: (store, {payload}) => {
                 store.push(payload);
-                localStorage.setItem('events', JSON.stringify({ payload }));
+                // localStorage.setItem('events', JSON.stringify({ payload }));
             },
             prepare: (data) => {
               return {
@@ -57,8 +79,6 @@ import { nanoid } from "nanoid";
           reducer: (store, {payload}) => {
             const oldEvent = store.find(({id}) => id === payload.id);
             Object.assign(oldEvent, payload)
-            // const newEvent = {...oldEvent, payload};`
-            // store.push(newEvent);
           }
         },
         removeEvent: (store, {payload}) => store.filter(({id}) => id !== Number(payload))
