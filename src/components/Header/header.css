@@ -5,9 +5,14 @@
     color: var(--accent-color);
     border-bottom: 1px solid var(--accent-color);
     flex-wrap: wrap;
+    align-items: center;
     background-color: var(--primary-color);
 }
 
 .header-title {
-    width: 147px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
 }

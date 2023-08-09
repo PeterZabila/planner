@@ -50,7 +50,7 @@ const Buttons = () => {
                 
 
             <Link to="newEvent"> 
-                <button className='btn-item new-event'>
+                <button type="button" className='btn-item new-event'>
                     <img src={plus} alt="Add event" className='new-btn-image'/><span className='new-event-text'>Add event</span>
                 </button>
             </Link>
