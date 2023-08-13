@@ -7,7 +7,6 @@ import sort from '../../images/sort.svg';
 import category from '../../images/category.svg';
 import './buttons.scss';
 
-
 const Buttons = () => {
 
     const dispatch = useDispatch();

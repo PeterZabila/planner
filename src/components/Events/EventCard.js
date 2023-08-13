@@ -16,7 +16,6 @@ const EventCard = ({ event }) => {
     id,
   } = event;
 
-  // const narmalizedDate = (date.split('-').unshift()).join();
   const dateToString = date.split("-");
   dateToString.shift();
   const formattedDataOutput = dateToString.join(".");
