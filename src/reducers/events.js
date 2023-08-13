@@ -8,7 +8,7 @@ import { nanoid } from "nanoid";
             id: 1,
             title: 'Football match',
             description: 'Great evening for all football fans and players. Inter Rome will take part in an unforgatable battle of the best of the best. Tickets preorder is open ',
-            date: "2023-08-10",
+            date: "2021-08-10",
             time: '12:00',
             location: 'Kyiv',
             category: 'Sport',
@@ -19,7 +19,7 @@ import { nanoid } from "nanoid";
             id: 2,
             title: 'Music event',
             description: 'Dear friends. We are honored to invite you to our music event where all talanted musicians of our beautiful city will perfirm live for you',
-            date: "2023-10-10",
+            date: "2017-10-10",
             time: '11:00',
             location: 'Lviv',
             category: 'Music',
@@ -30,7 +30,7 @@ import { nanoid } from "nanoid";
             id: 3,
             title: 'Business masterclass',
             description: 'Business trainers will teach how to trade on stock exjchange markets. Also will give you practical advices on how to set your business workflow',
-            date: "2023-11-23",
+            date: "2014-11-23",
             time: '09:00',
             location: 'Kyiv',
             category: 'Business',
@@ -41,7 +41,7 @@ import { nanoid } from "nanoid";
             id: 4,
             title: 'Photography workshop',
             description: 'Free online masterclass for beginner photographers. Every enthusiast is welcome',
-            date: "2023-12-15",
+            date: "2015-12-15",
             time: '09:00',
             location: 'Cherkasy',
             category: 'Art',
@@ -52,7 +52,7 @@ import { nanoid } from "nanoid";
             id: 5,
             title: 'Jass festival',
             description: 'Hello dear friends. Please welcome to Annual Jazz festival in Ternopil. Best performers on the stage will present our new program',
-            date: "2023-11-23",
+            date: "2016-11-23",
             time: '09:00',
             location: 'Ternopil',
             category: 'Music',
@@ -64,7 +64,7 @@ import { nanoid } from "nanoid";
         addEvent: {
             reducer: (store, {payload}) => {
                 store.push(payload);
-                // localStorage.setItem('events', JSON.stringify({ payload }));
+                localStorage.setItem('events', JSON.stringify(store));
             },
             prepare: (data) => {
               return {

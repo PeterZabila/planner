@@ -4,12 +4,13 @@ import Header from './Header/Header';
 
 const SharedLayout = () => {
   return (
-
-     
-      <div className='container'>
+    <div className='content-wrapper'>
         <Header/>
-        <Outlet/>
-      </div>
+          <div className='container'>
+            <Outlet/>
+          </div>
+    </div>
+    
 
   )
 }

@@ -6,7 +6,7 @@
     margin-top: 10px;
 
     @media screen and (min-width:768px) {
-        width: 688px;
+        width: 628px;
         height: 504px;
       }
       
@@ -25,20 +25,30 @@
 
 .imageContainer img{
     overflow: hidden;
-    width: 100%;
+    width: 272px;
     height: 168px;
+    background: url(../../images/default.png), lightgray 0px -207.613px / 100% 347.158% no-repeat;
 
     @media screen and (min-width: 768px) {
+        width: 628px;
         height: 272px;
+        background: url(../../images/default_wide.png);
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 628px;
+        height: 272px;
+        background: url(../../images/default_wide.png);
     }
 
     border: none;
     outline: none;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 8px 8px 8px 8px;
 }
 
 .imageContainer {
     margin-bottom:  24px;
+    
     @media screen and (min-width: 768px) {
         margin-bottom: 24px;
     } 
@@ -109,7 +119,7 @@
     display: flex;
     flex-direction: row;
     padding: 8px 16px;
-    justify-content: end;
+    justify-content: flex-end;
 }
 .btnEdit {
     background-color: var(--primary-color);
@@ -119,7 +129,6 @@
     margin-right: 16px;
     padding: 8px 16px;
     width: 55px;
-    
 }
 
 .btnDelete {

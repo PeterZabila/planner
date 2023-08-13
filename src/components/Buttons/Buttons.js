@@ -40,9 +40,9 @@ const Buttons = () => {
                 <div className='selectible btn-item'>
                         <select name="sort" onChange={handleChangeSort} className='items-select' style={{backgroundImage:(` url${sort}`)}}>
                             <option className='opt' value="Sort by">Sort by</option>
-                            <option className='opt' value="by name">by name</option>
-                            <option className='opt' value="by data">by data</option>
-                            <option className='opt' value="by priority">by priority</option>
+                            <option className='opt' value="by name">name</option>
+                            <option className='opt' value="by date asc">date asc</option>
+                            <option className='opt' value="by date desc">date desc</option>
                         </select>
              
                     <img src={sort} className='btn-image' alt="Category" />
@@ -50,7 +50,7 @@ const Buttons = () => {
                 
 
             <Link to="newEvent"> 
-                <button type="button" className='btn-item new-event'>
+                <button className='btn-item new-event'>
                     <img src={plus} alt="Add event" className='new-btn-image'/><span className='new-event-text'>Add event</span>
                 </button>
             </Link>

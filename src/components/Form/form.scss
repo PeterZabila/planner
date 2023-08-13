@@ -1,28 +1,32 @@
 .event-form-wrapper {
-    margin-top: 24px;
-    margin-right: auto;
-    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+        @media screen and (min-width: 768px) {
+            width: 688px;     
+        }
+        @media screen and (min-width: 1280px) {
+            width: 1280px;     
+        }
 }
 .event-form {
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 100%;
+    border-radius: 8px;
     box-shadow: 2px 4px 9px 0px #A68DAE47;
     background-color: var(--primary-color);
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        width: 320px;
-        height: 100%;
-
-      @media screen and (min-width:768px) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+        
+      @media screen and (min-width: 768px) {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           grid-template-rows: repeat(3, 1fr);
-          gap: 10px;
-          width: 688px;      
+          gap: 10px;     
         }
       
-        @media screen and (min-width:1280px) {
-          width: 1280px;
+        @media screen and (min-width: 1280px) {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           grid-template-rows: repeat(3, 1fr);         
@@ -30,15 +34,29 @@
 }
 
 .input {
-    // justify-self: center;
-    align-self: left;
+    width: 240px;
+
+    @media screen and (min-width: 768px) {
+        width: 308px;
+    }
+    @media screen and (min-width: 1280px) {
+        width: 372px;
+    }
+    justify-self: center;
 }
 
 .input-field {
-    width: 240px;
     border-radius: 3px;
     outline: none;
     border: 1px solid lightgray;
+    width: 240px;
+
+    @media screen and (min-width: 768px) {
+        width: 308px;
+    }
+    @media screen and (min-width: 1280px) {
+        width: 372px;
+    }
 }
 
 .dateTime-input-field {
@@ -60,7 +78,20 @@ button {
     background-color: var(--accent-color);
     border: none;
     outline: none;
-    border-radius: 3px;
+    border-radius: 5px;
+    justify-self: center;
+
+    @media screen and (min-width: 768px) {
+        width: 193px;
+    }
+    @media screen and (min-width: 768px) {
+        width: 193px;
+    }
+}
+
+.button {
+    justify-self: center;
+    
 }
 
 .goback {
@@ -74,5 +105,5 @@ button {
 }
 
 .title-wrapper {
-    padding-left: 15px;
+    padding: 15px;
 }

@@ -39,7 +39,8 @@ const EventDetail = () => {
       </div>
 
       <div className={styles.imageContainer}>
-        <img src={picture ? picture : img} alt=''/>
+        <img alt=''/>
+        {/* <img src={picture ? picture : img} alt=''/> */}
       </div>
 
       <div className={styles.cardDetails}>
